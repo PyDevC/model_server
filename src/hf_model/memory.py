@@ -1,4 +1,5 @@
 import torch
+from typing import List
 
 cpu = torch.device("cpu")
 gpu = torch.device(f"cuda:{torch.cuda.current_device()}")
@@ -38,7 +39,7 @@ def onload_model_to_device_with_memory_preservation(model, target_device=None, p
 
     print(f"moving {model.__class__.__name__} to {target_device} with preserved memory {preserved_memory} GB")
     
-    for m in model.modules():
+    for m in list(model.modules()):
         if get_free_memory_gb(target_device) <= preserved_memory:
             torch.cuda.empty_cache()
             return 
@@ -81,4 +82,26 @@ def load_complete_model(model, target_device, unload_other=True):
     model.to(target_device)
     print(f"Loaded Complete model {model.__class__.__name__} to {target_device}")
     gpu_complete_modules.append(model)
+    return
+
+def partial_onload_model(modules: List, target_device='cuda', preserved_memory=0):
+    print(f"Partially moving {modules.__class__.__name__}")
+    if preserved_memory == 0:
+        print(f"Can't load model partially due to preserved memory = 0")
+        return
+    if get_free_memory_gb() <= preserved_memory:
+        print(f"Can't load {modules[0].__class__.__name__} to {target_device}")
+
+    for module in modules:
+        module.to(target_device)
+        gpu_complete_modules.append(module)
+    return
+
+def partial_offload_model(modules: List, target_device='cpu'):
+    print(f"Partially moving {modules[0].__class__.__name__}")
+    for module in modules:
+        if module in gpu_complete_modules:
+            module.to(target_device)
+            gpu_complete_modules.remove(module)
+            print(f"Unloaded {module.__name__} to {target_device}")
     return
