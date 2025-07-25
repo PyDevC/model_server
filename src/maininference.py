@@ -12,3 +12,5 @@ def start():
         if message == "quit":
             return
         print(model.generate(message))
+
+print(cli.parser.parse_args())
