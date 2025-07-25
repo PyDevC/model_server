@@ -1,7 +1,7 @@
 # TODO
 
+- Change the arch to allow faster loading for the server and faster loading in case of simpler actions
 - Create complete server for local inferencing of model
-- Create cli
 - Create docs for hf_model
 - Create a fake low memory model for testing, use fake tensors for inferencing
 - Add more model cards for general purpose LLM
