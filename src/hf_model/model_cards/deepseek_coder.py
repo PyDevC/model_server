@@ -59,3 +59,10 @@ class DeepSeek_Coder_6_7B_Instruct_Quant(DeepSeek_Coder_Base):
         model = AutoModelForCausalLM.from_pretrained("deepseek-ai/deepseek-coder-6.7b-instruct", trust_remote_code=True, torch_dtype=torch.float16, load_in_8bit=True).cuda()
         tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/deepseek-coder-6.7b-instruct", trust_remote_code=True)
         super().__init__(name, model, tokenizer)
+
+class DeepSeek_R1_QWEN3_8b(DeepSeek_Coder_Base):
+    def __init__(self):
+        name = "unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF"
+        model = AutoModelForCausalLM.from_pretrained("unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF", trust_remote_code=True, torch_dtype=torch.float16, load_in_8bit=True).cuda()
+        tokenizer = AutoTokenizer.from_pretrained("unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF", trust_remote_code=True)
+        super().__init__(name, model, tokenizer)
