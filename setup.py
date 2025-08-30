@@ -17,7 +17,7 @@ setuptools.setup(
     url="[https://github.com/PyDevC/model_server](https://github.com/PyDevC/model_server)",
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
-    python_requires=">=3.8",
+    python_requires=">=3.10",
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3",
