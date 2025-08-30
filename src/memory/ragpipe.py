@@ -5,14 +5,13 @@ from .browse import get_documents_for_query, create_vector_store_retriever
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
+from langchain_core.language_models.llms import LLM
 
-class CustomHFModel:
+class CustomHFModel(LLM):
+    model: Any
     """
     A custom LangChain LLM wrapper for inferencing hf_models
     """
-    def __init__(self, model):
-        self.model = model
-
     @property
     def _llm_type(self) -> str:
         return "huggingface model"

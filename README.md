@@ -30,13 +30,6 @@ Build Python Package
 python3 setup.py develop
 ```
 
-## LLM inferencing
-
-```bash
-model_server -start -config=".modelconf" -model="LFM2_1_2B"
-```
-
-
 ## Build docs
 
 ```bash

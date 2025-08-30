@@ -1,5 +1,4 @@
 from memory.ragpipe import run_rag_pipeline
-import sys
 from hf_model.model_cards.deepseek_coder import (
     DeepSeek_Coder_1_3B_Instruct
 )
