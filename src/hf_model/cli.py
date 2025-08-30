@@ -4,6 +4,9 @@ from typing import Iterable
 parser = argparse.ArgumentParser()
 parser.prog = "Model Server"
 
+## Defined arguments
+
+## Function argument decorators
 def parse_one_argument():
     r"""Decorator for converting the function into a one argument parse
     Takes in function name as argument name, help as function docstring
@@ -16,6 +19,7 @@ def parse_one_argument():
     ```
     """
     def inner_parser(func):
+        argname = "-" + func.__name__
         parser.add_argument(func.__name__, help=func.__doc__)
         if func.__name__ in parser.parse_args():
             func()
@@ -35,11 +39,12 @@ def parse_one_argument_multiname(extraname):
     ```
     """
     def inner_parser(func):
+        argname = "--" + func.__name__
         if not isinstance(extraname, str):
             raise argparse.ArgumentError(
                 argument=None, 
                 message="Do not pass extraname as anything other than a single string"
             )
-        parser.add_argument(func.__name__, help=func.__doc__)
+        parser.add_argument(argname, extraname, help=func.__doc__)
         func()
     return inner_parser

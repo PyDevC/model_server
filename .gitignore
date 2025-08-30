@@ -5,3 +5,6 @@ src/hf_model/model_cards/*hf_download*/
 
 # Docs
 docs/build
+
+## Data
+data/*
