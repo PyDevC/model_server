@@ -8,3 +8,7 @@ docs/build
 
 ## Data
 data/*
+
+## Build
+dist/
+**.egg-info/
