@@ -11,10 +11,8 @@ class BaseModelCard(ABC):
     r"""Base Structure of Every Model
     
     Example:
-    class DeepSeek(ModelCard):
+    class DeepSeek(BaseModelCard):
         def __init__(self, model, tokenizer):
-            model = 
-            tokenizer = 
             super().__init__(model, tokenizer)
     """
     def __init__(self,name, model, tokenizer):
