@@ -1,22 +1,6 @@
 # Model server
 
-Inference various LLMs by while managing memory with onloading and offloading of models
+Model Server is going to become a tool to process huge amount of data with 
+LLMs, with faster inferencing and faster data pipelining.
 
-## FEATURES
-- Load any model via huggingface
-- Load layers of model with hf_model.memory
-- Several modelcards for basic inferencing
-- Function name argument parser for easly cli
-- Easily extensible
-
-## Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-## Usage
-
-```bash
-python3 src/maininference.py start
-```
+Completion of this project will take a while.
