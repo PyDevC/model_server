@@ -5,7 +5,7 @@ parser = argparse.ArgumentParser()
 parser.prog = "Model Server"
 
 def parse_one_argument():
-    r"""Decorator for converting the function into a one argument parse
+    """Decorator for converting the function into a one argument parse
     Takes in function name as argument name, help as function docstring
     Example Usage:
     ```python
@@ -23,7 +23,7 @@ def parse_one_argument():
     return inner_parser
 
 def parse_one_argument_multiname(extraname):
-    r"""Decorator for converting the function into a one argument parse
+    """Decorator for converting the function into a one argument parse
     Can take a extraname
     Takes in function name as argument name, help as function docstring
     Example Usage:
